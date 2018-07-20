@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Quotes from './Quotes.json';
-
+import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
+import Container from './Components/Container';
+import QuoteTable from './Components/QuoteTable';
 class App extends Component {
 
   state = {
@@ -12,18 +14,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
+        <NavBar />
+      <Container>
         {this.state.Quotes.map(quote => {
           <li>{quote}</li>
 
         })}
+        <QuoteTable />
+        </Container>
+        < Footer />
       </div>
     );
   }
